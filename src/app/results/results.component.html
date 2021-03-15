@@ -1,0 +1,11 @@
+<div class="results">
+    <div *ngIf="images$ | async as images" class="image__wrapper">
+        <img *ngFor="let gif of images; let i = index" class="image" [attr.src]="gif.src" [attr.id]="gif.id"
+            [attr.title]="gif.title" [attr.aria-label]="gif.title" />
+    </div>
+    <app-pagination *ngIf="pages$ | async as pages" [pages]="pages" (pageRequested)="onPageRequested($event)">
+    </app-pagination>
+    <div class="alert alert-primary" role="status" *ngIf="empty$ | async">
+        No results. Try another search phrase!
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<nav aria-label="Pagination" *ngIf="pages">
+    <ul class="pagination pagination--fixed">
+        <li class="page-item previous" *ngIf="showPrevious" (click)="prevClicked()" aria-label="Previous"><span
+                class="page-item__icon">
+                &#x2039; </span></li>
+        <li class="page-item next" *ngIf="showNext" (click)="nextClicked()" aria-label="Next"><span
+                class="page-item__icon">
+                &#x203A;</span></li>
+    </ul>
+</nav>

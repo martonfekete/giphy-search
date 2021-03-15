@@ -1,0 +1,13 @@
+<div class="form-group" role="search">
+    <label class="sr-only" for="query">Query</label>
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+            <div class="input-group-text">Search</div>
+        </div>
+        <input class="form-control" type="text" id="query" aria-label="Query string" placeholder="Search giphy..."
+            [formControl]="query" [ngClass]="{'is-invalid': query.invalid}" />
+        <div class="invalid-feedback">
+            You tried to search for a bad word.
+        </div>
+    </div>
+</div>

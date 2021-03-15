@@ -1,0 +1,7 @@
+.image {
+    flex: 1 0 auto;
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
