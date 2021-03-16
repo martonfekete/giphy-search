@@ -18,7 +18,7 @@ describe('QueryComponent', () => {
         ReactiveFormsModule
       ],
       declarations: [QueryComponent],
-      providers: [{ QueryService, useValue: queryServiceSpies }]
+      providers: [{ provide: QueryService, useValue: queryServiceSpies }]
     })
       .compileComponents();
   });
@@ -26,7 +26,7 @@ describe('QueryComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(QueryComponent);
     component = fixture.componentInstance;
-    queryServiceSpies.initQueryControl.and.returnValue(new FormControl());
+    component.query = new FormControl();
     fixture.detectChanges();
   });
 

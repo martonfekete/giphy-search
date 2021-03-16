@@ -12,6 +12,7 @@ describe('QueryService', () => {
     dataServiceSpies = jasmine.createSpyObj('DataService', ['getBadWords', 'updateQuery']);
     TestBed.configureTestingModule({
       providers: [
+        QueryService,
         { provide: DataService, useValue: dataServiceSpies }
       ]
     });
