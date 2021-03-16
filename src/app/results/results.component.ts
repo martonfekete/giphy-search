@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { MappedPagination } from '../api/pagination.model';
 import { DataService } from '../data/data.service';
 import { GifImage } from '../data/images.model';
@@ -11,7 +11,7 @@ import { GifImage } from '../data/images.model';
 })
 export class ResultsComponent {
   empty$: Subject<boolean>;
-  images$: Subject<GifImage[]>;
+  images$: Observable<GifImage[]>;
   pages$: Subject<MappedPagination>;
 
   constructor(
@@ -23,6 +23,6 @@ export class ResultsComponent {
   }
 
   onPageRequested(pageNumber: number): void {
-    this.dataService.queryGifPage(pageNumber);
+    this.dataService.updateRequestedPage(pageNumber);
   }
 }

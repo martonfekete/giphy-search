@@ -1,3 +1,8 @@
+export interface ImageRequestProps {
+    query: string;
+    page: number;
+}
+
 export interface GifImage {
     giphyUrl: string;
     src: string;

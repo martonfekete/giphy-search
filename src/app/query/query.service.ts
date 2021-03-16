@@ -3,9 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { debounceTime, filter } from 'rxjs/operators';
 import { DataService } from '../data/data.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class QueryService {
   query: FormControl = new FormControl();
 
@@ -18,16 +16,16 @@ export class QueryService {
   }
 
   initQueryControl(): FormControl {
-    this.watchQueryField();
+    this.initQueryFieldWatcher();
     return this.query;
   }
 
-  watchQueryField(): void {
+  initQueryFieldWatcher(): void {
     this.query.valueChanges.pipe(
       debounceTime(1000),
-      filter(() => this.query.valid && !!this.query)
-    ).subscribe(val => {
-      this.dataService.queryImages(val);
+      filter(value => this.query.valid && !!value)
+    ).subscribe(value => {
+      this.dataService.updateQuery(value);
     });
   }
 

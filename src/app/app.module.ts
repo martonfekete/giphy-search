@@ -1,24 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { QueryComponent } from './query/query.component';
-import { ResultsComponent } from './results/results.component';
-import { PaginationComponent } from './pagination/pagination.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { PaginationModule } from './pagination/pagination.module';
+import { QueryModule } from './query/query.module';
+import { ResultsModule } from './results/results.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    QueryComponent,
-    ResultsComponent,
-    PaginationComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    QueryModule,
+    ResultsModule,
+    PaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
